@@ -8,8 +8,8 @@ private enum Layout {
   }
 
   enum ImageView {
-    static let width: CGFloat = 60
-    static let height: CGFloat = 130
+    static let width: CGFloat = 90
+    static let height: CGFloat = 120
   }
 
   enum SpacerView {
@@ -51,9 +51,8 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
     self.configureStackView()
 
     NSLayoutConstraint.activate([
-      self.containerImageView.widthAnchor.constraint(equalToConstant: Layout.Container.width),
-      self.pledgeImageView.widthAnchor.constraint(equalToConstant: Layout.ImageView.width),
-      self.pledgeImageView.heightAnchor.constraint(equalToConstant: Layout.ImageView.height),
+      self.containerImageView.widthAnchor.constraint(equalToConstant: Layout.ImageView.width),
+      self.containerImageView.heightAnchor.constraint(equalToConstant: Layout.ImageView.height),
       self.pledgeImageView.centerXAnchor.constraint(equalTo: self.containerImageView.centerXAnchor)
     ])
   }
@@ -72,9 +71,6 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
 
     _ = self.rootStackView
       |> rootStackViewStyle
-
-    _ = self.containerImageView
-      |> \.backgroundColor .~ UIColor.blue
 
     _ = self.pledgeImageView
       |> \.backgroundColor .~ UIColor.orange

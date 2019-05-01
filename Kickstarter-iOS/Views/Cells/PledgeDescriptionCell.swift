@@ -3,10 +3,6 @@ import Prelude
 import UIKit
 
 private enum Layout {
-  enum Container {
-    static let width: CGFloat = 70
-  }
-
   enum ImageView {
     static let width: CGFloat = 90
     static let height: CGFloat = 120
@@ -67,7 +63,7 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
     super.bindStyles()
 
     _ = self
-      |> \.backgroundColor .~ UIColor.hex(0xf0f0f0)
+      |> checkoutBackgroundStyle
 
     _ = self.rootStackView
       |> rootStackViewStyle
@@ -79,14 +75,22 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
       |> descriptionStackViewStyle
 
     _ = self.estimatedDeliveryLabel
+      |> checkoutBackgroundStyle
+    _ = self.estimatedDeliveryLabel
       |> estimatedDeliveryLabelStyle
 
+    _ = self.dateLabel
+      |> checkoutBackgroundStyle
     _ = self.dateLabel
       |> dateLabelStyle
 
     _ = self.descriptionLabel
+      |> checkoutBackgroundStyle
+    _ = self.descriptionLabel
       |> descriptionLabelStyle
 
+    _ = self.learnMoreLabel
+      |> checkoutBackgroundStyle
     _ = self.learnMoreLabel
       |> learnMoreLabelStyle
   }

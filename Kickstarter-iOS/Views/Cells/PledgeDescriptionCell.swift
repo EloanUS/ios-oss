@@ -38,7 +38,8 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
       |> ksr_addSubviewToParent()
       |> ksr_constrainViewToEdgesInParent()
 
-    self.rootStackView.addArrangedSubview(self.containerImageView)
+    _ = ([self.containerImageView], self.rootStackView)
+      |> ksr_addArrangedSubviewsToStackView()
 
     _ = (self.pledgeImageView, self.containerImageView)
       |> ksr_addSubviewToParent()
@@ -107,13 +108,12 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
       self.spacerView.heightAnchor.constraint(equalToConstant: Layout.SpacerView.height)
     ])
 
-    [
-      self.spacerView,
-      self.estimatedDeliveryLabel,
-      self.dateLabel,
-      self.descriptionLabel,
-      self.learnMoreLabel
-    ].forEach(self.descriptionStackView.addArrangedSubview)
+    _ = ([self.spacerView,
+          self.estimatedDeliveryLabel,
+          self.dateLabel,
+          self.descriptionLabel,
+          self.learnMoreLabel], self.descriptionStackView)
+      |> ksr_addArrangedSubviewsToStackView()
 
     if #available(iOS 11.0, *) {
       self.descriptionStackView.setCustomSpacing(10.0, after: self.dateLabel)
@@ -125,7 +125,8 @@ final class PledgeDescriptionCell: UITableViewCell, ValueCell {
       self.descriptionStackView.insertArrangedSubview(view, at: 3)
     }
 
-    self.rootStackView.addArrangedSubview(self.descriptionStackView)
+    _ = ([self.descriptionStackView], self.rootStackView)
+      |> ksr_addArrangedSubviewsToStackView()
   }
 }
 

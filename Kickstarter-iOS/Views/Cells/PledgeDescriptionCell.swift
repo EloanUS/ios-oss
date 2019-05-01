@@ -162,7 +162,7 @@ private let descriptionLabelStyle: LabelStyle = { (label: UILabel) in
   label
     |> \.text  %~ { _ in Strings.Kickstarter_is_not_a_store_Its_a_way_to_bring_creative_projects_to_life() }
     |> \.textColor .~ UIColor.ksr_text_dark_grey_500
-    |> \.font .~ UIFont.ksr_subhead(size: 12)
+    |> \.font .~ UIFont.ksr_caption1()
     |> \.adjustsFontForContentSizeCategory .~ true
     |> \.numberOfLines .~ 0
 }
@@ -171,7 +171,7 @@ private let learnMoreLabelStyle: LabelStyle = { (label: UILabel) in
   label
     |> \.text  %~ { _ in "\(Strings.Learn_more_about_accountability())." }
     |> \.textColor .~ UIColor.ksr_green_500
-    |> \.font .~ UIFont.ksr_subhead(size: 12)
+    |> \.font .~ UIFont.ksr_caption1()
     |> \.adjustsFontForContentSizeCategory .~ true
     |> \.numberOfLines .~ 0
 }
